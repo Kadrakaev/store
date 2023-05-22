@@ -7,7 +7,14 @@ class ProductCategory(models.Model):
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return f'Категория: {self.name}'
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
+    def is_exist(self):
+        return Product.objects.filter(category=self).exists()
 
 
 class Product(models.Model):
@@ -18,6 +25,9 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products_images')
     category = models.ForeignKey(to=ProductCategory, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товары'
     def __str__(self):
         return f'Продукт: {self.name} | Категория: {self.category.name}'
 
