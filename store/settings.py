@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-DOMAIN_NAME = 'http://localhost:8000'
+DOMAIN_NAME = 'http://127.0.0.1:8000'
 
 # Application definition
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.humanize',
 
     'allauth',
     'allauth.account',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
 
     'products',
     'users',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -185,3 +187,9 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
+
+# stripe
+
+STRIPE_PUBLIC_KEY = 'pk_test_51NP3YII9BwYnLSFyBco9Hwnje1iMP2NDuRgtUly9kXl6UA9JJJOGEcAf6BRpMjHY8AINbyQVsUqQVwlm4hHPcOZg00LiwlEwHZ'
+STRIPE_SECRET_KEY = 'sk_test_51NP3YII9BwYnLSFybIR3fSL3808kimXaEZE8ghkVsmeyYjIBtBjcw9buATEoO3OWKqWNLnc7P2INswDvSSJlwLV000pmxW8nxI'
+STRIPE_WEBHOOK_SECRET = 'whsec_3aedf01142ce3f4a0382626d92e2c7d274c22136d821195fa8d60aa6cb56e2ef'
